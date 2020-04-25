@@ -1,0 +1,39 @@
+#include <stdio.h>
+
+enum iceCream {chocolate, vanilla, strawberry, orange, lemon, coconut, caramel, fudge, banana};
+
+enum flavors {mint, chip, custard, nutty, brownie, mango, oreo, cheesecake, sherbet};
+
+
+int main(void) {
+  
+  enum iceCream myIcecream = strawberry;
+  enum flavors myFlavor = oreo;
+  printf("%d\n", myIcecream + myFlavor);
+  printf("%d\n", (++myIcecream) - (--myFlavor));
+  printf("%d\n", (myFlavor = nutty));
+  printf("%d\n", (myIcecream += 2));
+  printf("%d\n", myFlavor & myIcecream);
+  printf("%d\n", myIcecream + myIcecream + myFlavor);
+  printf("%d\n", (++myFlavor) | (myIcecream));
+  printf("%d\n", myFlavor << 1);
+  printf("%d\n", myIcecream >> 2);
+  printf("%d\n", (myFlavor + myFlavor - myIcecream * myFlavor) >> 4);
+  printf("%d\n\n", (myFlavor + myFlavor - myIcecream * myFlavor) >> 5);
+
+  int flav = 6;
+  int cream = 2;
+  printf("%d\n", cream + flav);
+  printf("%d\n", (++cream) - (--flav));
+  printf("%d\n", (flav = nutty));
+  printf("%d\n", (cream += 2));
+  printf("%d\n", flav & cream);
+  printf("%d\n", cream + cream + flav);
+  printf("%d\n", (++flav) | (cream));
+  printf("%d\n", flav << 1);
+  printf("%d\n", cream >> 2);
+  printf("%d\n", (flav + flav - cream * flav) >> 4);
+  printf("%d\n", (flav + flav - cream * flav) >> 5);
+
+  return 0;
+}
