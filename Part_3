@@ -1,0 +1,43 @@
+#include <iostream>
+#include <chrono>
+using namespace std;
+using namespace std::chrono;
+
+int stat[1000]; //Static Allocation
+
+int main() {
+  std::cout << "Hello World!\n";
+  int stack[1000]; //Stack Allocation
+  int *array = new int[1000]; //Heap Allocation
+
+  int a;
+  auto start1 = high_resolution_clock::now();
+  for (a=0; a<1000000; ++a){
+    stat[0];
+  }
+  auto stop1 = high_resolution_clock::now();
+  auto duration1 = duration_cast<microseconds>(stop1 - start1);
+  cout << "Time taken by static allocation: "<< duration1.count() << " microseconds" << endl;
+  
+  int b;
+  auto start2 = high_resolution_clock::now();
+  for (b=0; b<1000000; ++b){
+    stack[0];
+  }
+  auto stop2 = high_resolution_clock::now();
+  auto duration2 = duration_cast<microseconds>(stop2 - start2);
+  cout << "Time taken by stack allocation: "<< duration2.count() << " microseconds" << endl;
+
+
+  int c;
+  auto start3 = high_resolution_clock::now();
+  for(c=0; c<1000000; ++c){
+    array[0];
+  }
+  auto stop3 = high_resolution_clock::now();
+  auto duration3 = duration_cast<microseconds>(stop3 - start3);
+  cout << "Time taken by heap allocation: "<< duration3.count() << " microseconds" << endl;
+
+  delete[] array;
+
+}
